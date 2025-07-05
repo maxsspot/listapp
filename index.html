@@ -64,7 +64,9 @@
 			    newItem.className = "listItem"
 			    newItem.id = "item" + numberOfItems
 			    newItem.addEventListener("blur",shouldYouRemove)
-			    newItem.style.borderTop = "black solid 1px"
+			    if (numberOfItems>1) {
+				newItem.style.borderTop = "black solid 1px"
+			    }
 			
 			    checkItemIcon = document.createElement("i")
 			    checkItemIcon.className = "fa-solid fa-check"
