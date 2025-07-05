@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src = "script.js"></script>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+		<title></title>
+	</head>
+	<body>
+		<div id = "resetConfirmDialog">
+			<br>
+			<h1>Confirm List Reset</h1>
+			<p>Are you sure you would like to reset your list?</p>
+			<br>
+			<a id = "no" onclick = "closeReset()">NO</a> | <a id = "yes" onclick = "resetList()">YES</a>
+			<br><br>
+		</div>
+		<input id = "listName" value = "New List" />
+		<br><br><br>
+		<div id = "contentBox">
+			<div id = "listContent">
+				<input id = "item1" class = "listItem" /><button class="itemControl" id = "checkItem1" onclick="checkItemF(event)"><i class="fa-solid fa-check"></i></button>
+			</div>
+			<br>
+			<button id = "addItem" onclick = "addItem()">Add Item</button>
+			<button id = "resetList" onclick = "confirmReset()">Reset List</button>
+		</div>
+	</body>
+</html>
