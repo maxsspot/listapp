@@ -39,9 +39,10 @@
 				document.title = "New List"
 			}
 			
-			if (localStorage.getItem(numberOfItems)) {
-				while (i!=localStorage.getItem(numberOfItems)) {
+			if (localStorage.getItem("numberOfItems")) {
+				while (i!=int(localStorage.getItem("numberOfItems"))) {
 					addItem()
+					i++
 				}
 			}
 			
