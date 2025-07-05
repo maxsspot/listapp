@@ -43,11 +43,14 @@
 				amountOfItems = Number(localStorage.getItem("numberOfItems"))
 				i=1
 				while (i < amountOfItems) {
+					i++
 					addItem()
 					itemInput = document.getElementById("item" + i)
 					savedValue = localStorage.getItem("item" + i)
 					itemInput.value = savedValue
-					i++
+					if (savedValue !== null) {
+					    itemInput.value = savedValue;
+				 	}
 				}
 			}
 			
