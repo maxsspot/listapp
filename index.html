@@ -21,7 +21,7 @@
 		<br><br><br>
 		<div id = "contentBox">
 			<div id = "listContent">
-				<input id = "item1" class = "listItem" /><button class="itemControl" id = "checkItem1" onclick="checkItemF(event)"><i class="fa-solid fa-check"></i></button>
+				<input id = "item1" class = "listItem" onblur = "shouldYouRemove(event)" /><button class="itemControl" id = "checkItem1" onclick="checkItemF(event)"><i class="fa-solid fa-check"></i></button>
 			</div>
 			<br>
 			<button id = "addItem" onclick = "addItem()">Add Item</button>
