@@ -40,13 +40,14 @@
 			}
 			
 			if (localStorage.getItem("numberOfItems")) {
+				amountOfItems = Number(localStorage.getItem("numberOfItems"))
 				i=1
-				while (i!=Number(localStorage.getItem("numberOfItems"))) {
-					addItem()
-					console.log(i)
-					console.log(localStorage.getItem("item" + i))
-					document.getElementById("item" + i).value = localStorage.getItem("item" + i)
+				while (i < amountOfItems) {
 					i++
+					addItem()
+					itemInput = document.getElementById("item" + i)
+					savedValue = localStorage.getItem("item" + i)
+					itemInput.value = savedValue
 				}
 			}
 			
@@ -112,9 +113,9 @@
 			        listContent.removeChild(itemToRemove)
 			        listContent.removeChild(buttonToRemove)
 			        numberOfItems-=1
-				localStorage.removeItem(itemToRemove)
+				localStorage.removeItem("item" + checkItemNumber)
 			    } else {
-				localStorage.setItem(itemToRemove,itemToRemove.value)
+				localStorage.setItem("item" + checkItemNumber,itemToRemove.value)
 				    console.log(localStorage.getItem(itemToRemove))
 			    }
 			}
