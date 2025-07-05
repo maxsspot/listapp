@@ -113,10 +113,10 @@
 			        listContent.removeChild(itemToRemove)
 			        listContent.removeChild(buttonToRemove)
 			        numberOfItems-=1
+				localStorage.setItem('numberOfItems',numberOfItems)
 				localStorage.removeItem("item" + checkItemNumber)
 			    } else {
 				localStorage.setItem("item" + checkItemNumber,itemToRemove.value)
-				    console.log(localStorage.getItem(itemToRemove))
 			    }
 			}
 
