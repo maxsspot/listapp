@@ -54,8 +54,6 @@
 			}
 			
 			function addItem () {
-			    numberOfItems+=1;
-				
 			    newItem = document.createElement("input")
 			    newItem.className = "listItem"
 			    newItem.id = "item" + numberOfItems
@@ -76,6 +74,7 @@
 			    listContent.appendChild(checkItem)
 
 			    localStorage.setItem('numberOfItems',numberOfItems)
+			    numberOfItems+=1;
 			}
 			
 			function confirmReset() {
