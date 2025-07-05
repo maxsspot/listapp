@@ -23,7 +23,7 @@
 				<input id = "item1" class = "listItem" onblur = "shouldYouRemove(event)" /><button class="itemControl" id = "checkItem1" onclick="checkItemF(event)"><i class="fa-solid fa-check"></i></button>
 			</div>
 			<br>
-			<button id = "addItem" onclick = "addItem();numberOfItems+=1;localStorage.setItem('numberOfItems',numberOfItems)">Add Item</button>
+			<button id = "addItem" onclick = "addItem()">Add Item</button>
 			<button id = "resetList" onclick = "confirmReset()">Reset List</button>
 		</div>
 		<script>
@@ -49,6 +49,8 @@
 			}
 			
 			function addItem () {
+			    numberOfItems+=1;
+				
 			    newItem = document.createElement("input")
 			    newItem.className = "listItem"
 			    newItem.id = "item" + numberOfItems
@@ -67,6 +69,8 @@
 			
 			    listContent.appendChild(newItem)
 			    listContent.appendChild(checkItem)
+
+			    localStorage.setItem('numberOfItems',numberOfItems)
 			}
 			
 			function confirmReset() {
