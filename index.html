@@ -47,6 +47,11 @@
 					itemInput = document.getElementById("item" + i)
 					savedValue = localStorage.getItem("item" + i)
 					itemInput.value = savedValue;
+
+					if (localStorage.getItem("item" + i + "checked") {
+						itemInput.style.textDecoration = "line-through"
+					}
+					
 					i++
 				}
 			} else {
@@ -100,8 +105,10 @@
 			    itemToCheck = document.getElementById("item" + checkItemNumber)
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
+				localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
 			        itemToCheck.style.textDecoration = "none"
+				localStorage.removeItem("item" + checkItemNumber + "checked")
 			    }
 			}
 			
