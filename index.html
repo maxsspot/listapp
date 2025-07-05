@@ -43,6 +43,7 @@
 				i=1
 				while (i!=Number(localStorage.getItem("numberOfItems"))) {
 					addItem()
+					console.log(localStorage.getItem("item" + i))
 					document.getElementById("item" + i).value = localStorage.getItem("item" + i)
 					i++
 				}
