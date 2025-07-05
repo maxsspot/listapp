@@ -3,6 +3,8 @@ var numberOfItems = 1;
 var resetConfirmDialog = document.getElementById("resetConfirmDialog")
 var listName = document.getElementById("listName");
 
+document.title = document.getElementById("listName").value;
+
 function addItem () {
     numberOfItems+=1
     
