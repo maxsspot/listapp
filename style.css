@@ -1,0 +1,93 @@
+* {
+    font-family:"Rubik", sans-serif;
+    margin:0;
+    padding:0;
+    outline:none;
+    transition:all 0.25s;
+}
+
+body {
+	background-color:#35454f;
+    text-align:center;
+    color:white;
+    user-select:none;
+}
+
+#listName {
+    padding:10px;
+    border:transparent;
+    font-size:20px;
+    width:300px;
+    background-color:transparent;
+    color:white;
+    float:left;
+}
+
+#listContent {
+    width:250px;
+    border-radius:5px;
+    margin:auto;
+    text-align:left;
+    background-color:white;
+}
+
+.listItem {
+    width:210px;
+    height:30px;
+    background-color:transparent;
+    border:transparent;
+    color:black;
+    text-indent:5px;
+    padding:5px;
+}
+
+#contentBox {
+    width:250px;
+    margin:auto;
+}
+
+#resetList, #addItem {
+    height:30px;
+    width:115px;
+    background-color:red;
+    border:transparent;
+    border-radius:5px;
+    float:right;
+    color:white;
+}
+
+#addItem {
+    float:left;
+    background-color:blue;
+}
+
+button {
+    cursor:pointer;
+}
+
+#resetConfirmDialog {
+    background-color:#212f36;
+    width:350px;
+    padding:10px;
+    border-radius:5px;
+    margin:auto;
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    top:0px;
+    opacity:0;
+    pointer-events:none;
+}
+
+#no, #yes {
+    cursor:pointer;
+}
+
+.itemControl {
+    width:30px;
+    height:41px;
+    color:black;
+    padding:5px;
+    background-color:transparent;
+    border:transparent;
+}
