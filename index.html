@@ -40,16 +40,14 @@
 			}
 			
 			if (localStorage.getItem("numberOfItems")) {
-				amountOfItems = Number(localStorage.getItem("numberOfItems")) || 1;
+				amountOfItems = Number(localStorage.getItem("numberOfItems"));
 				i=1
-				while (i < amountOfItems) {
+				while (i <= amountOfItems) {
 					i++
 					addItem()
 					itemInput = document.getElementById("item" + i)
 					savedValue = localStorage.getItem("item" + i)
-					if (savedValue !== null) {
-					    itemInput.value = savedValue;
-				 	}
+					itemInput.value = savedValue;
 				}
 			}
 			
