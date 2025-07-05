@@ -63,6 +63,8 @@
 			
 			    listContent.appendChild(newItem)
 			    listContent.appendChild(checkItem)
+
+			    localStorage.setItem("numberOfItems",numberOfItems)
 			}
 			
 			function confirmReset() {
@@ -102,6 +104,9 @@
 			        listContent.removeChild(itemToRemove)
 			        listContent.removeChild(buttonToRemove)
 			        numberOfItems-=1
+				localStorage.removeItem(itemToRemove)
+			    } else {
+				localStorage.setItem(itemToRemove,itemToRemove.value)
 			    }
 			}
 
