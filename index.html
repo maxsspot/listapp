@@ -41,7 +41,7 @@
 			
 			if (localStorage.getItem("numberOfItems")) {
 				i=1
-				while (i!=int(localStorage.getItem("numberOfItems"))) {
+				while (i!=Number(localStorage.getItem("numberOfItems"))) {
 					addItem()
 					i++
 				}
