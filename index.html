@@ -94,7 +94,7 @@
 			}
 			
 			function resetList() {
-			    numberOfItems=0
+			    numberOfItems=1
 			    listContent.innerHTML=""
 			    listName.value="New List"
 			    document.title=listName.value
@@ -109,10 +109,10 @@
 			    itemToCheck = document.getElementById("item" + checkItemNumber)
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
-				localStorage.setItem("item" + checkItemNumber + "checked","true")
+				      localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
 			        itemToCheck.style.textDecoration = "none"
-				localStorage.removeItem("item" + checkItemNumber + "checked")
+				      localStorage.removeItem("item" + checkItemNumber + "checked")
 			    }
 			}
 			
@@ -124,7 +124,8 @@
 			    if (itemToRemove.value === "" && checkItemNumber != 1) {
 			        listContent.removeChild(itemToRemove)
 			        listContent.removeChild(buttonToRemove)
-			        numberOfItems-=1
+			        numberOfItems=Number(localStorage.getItem("numberOfItems"))
+				numberOfItems-=1
 				localStorage.setItem('numberOfItems',numberOfItems)
 				localStorage.removeItem("item" + checkItemNumber)
 			    } else {
