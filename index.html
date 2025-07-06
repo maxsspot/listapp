@@ -16,6 +16,7 @@
 			<a id = "no" onclick = "closeReset()">NO</a> | <a id = "yes" onclick = "resetList()">YES</a>
 			<br><br>
 		</div>
+		<div id = "coverBg"></div>
 		<input id = "listName" value = "New List" oninput = "updatePageTitle()" />
 		<br><br><br>
 		<div id = "contentBox">
@@ -31,7 +32,8 @@
 			var numberOfItems = 1;
 			var resetConfirmDialog = document.getElementById("resetConfirmDialog")
 			var listName = document.getElementById("listName");
-
+			var coverBg = document.getElementById("coverBg");
+				
 			if (localStorage.getItem("savedTitle")) {
 				document.title = localStorage.getItem("savedTitle")
 				listName.value = localStorage.getItem("savedTitle")
@@ -86,11 +88,13 @@
 			}
 			
 			function confirmReset() {
-			    resetConfirmDialog.style.opacity = "1";  resetConfirmDialog.style.top = "10px";  resetConfirmDialog.style.pointerEvents = "all"
+			    resetConfirmDialog.style.opacity = "1";  resetConfirmDialog.style.top = "10px";  resetConfirmDialog.style.pointerEvents = "all";
+			    coverBg.style.opacity = "0.65"; coverBg.style.pointerEvents = "all";
 			}
 			
 			function closeReset() {
 			    resetConfirmDialog.style.opacity = "0";  resetConfirmDialog.style.top = "00px";  resetConfirmDialog.style.pointerEvents = "none"
+			    coverBg.style.opacity = "0"; coverBg.style.pointerEvents = "none";
 			}
 			
 			function resetList() {
