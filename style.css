@@ -19,6 +19,7 @@ body {
     height:100vh;
     background-color:black;
     opacity:0.0;
+    pointer-events:none;
 }
 
 #listName {
