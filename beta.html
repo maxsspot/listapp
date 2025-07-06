@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+		<link href='style.css' rel='stylesheet' type='text/css'/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+		<title></title>
+	</head>
+	<body>
+		<div id = "resetConfirmDialog">
+			<br>
+			<h1>Confirm List Reset</h1>
+			<p>Are you sure you'd like to reset your list?</p>
+			<br>
+			<a id = "no" onclick = "closeReset()">NO</a> | <a id = "yes" onclick = "resetList()">YES</a>
+			<br><br>
+		</div>
+		<input id = "listName" value = "New List" oninput = "updatePageTitle()" />
+		<br><br><br>
+		<div id = "contentBox">
+			<div id = "listContent">
+				
+			</div>
+			<br>
+			<button id = "addItem" onclick = "addItem()">Add Item</button>
+			<button id = "resetList" onclick = "confirmReset()">Reset List</button>
+		</div>
+		<script>
+			var listContent = document.getElementById("listContent")
+			var numberOfItems = 1;
+			var resetConfirmDialog = document.getElementById("resetConfirmDialog")
+			var listName = document.getElementById("listName");
+
+			if (localStorage.getItem("savedTitle")) {
+				document.title = localStorage.getItem("savedTitle")
+				listName.value = localStorage.getItem("savedTitle")
+			} else {
+				document.title = "New List - TEST MODE"
+			}
+			
+			if (localStorage.getItem("numberOfItems")) {
+				amountOfItems = Number(localStorage.getItem("numberOfItems"));
+				i=1
+				while (i <= amountOfItems) {
+					addItem()
+					document.getElementById("item1").style.border="none";
+					itemInput = document.getElementById("item" + i)
+					savedValue = localStorage.getItem("item" + i)
+					itemInput.value = savedValue;
+
+					if (localStorage.getItem("item" + i + "checked")) {
+						itemInput.style.textDecoration = "line-through"
+					}
+					
+					i++
+				}
+			} else {
+				addItem()
+			}
+			
+			function addItem () {
+			    newItem = document.createElement("input")
+			    newItem.className = "listItem"
+			    newItem.id = "item" + numberOfItems
+			    newItem.addEventListener("blur",shouldYouRemove)
+			    if (numberOfItems>1) {
+				newItem.style.borderTop = "black solid 1px"
+			    }
+			
+			    checkItemIcon = document.createElement("i")
+			    checkItemIcon.className = "fa-solid fa-check"
+			
+			    checkItem = document.createElement("button")
+			    checkItem.className = "itemControl"
+			    checkItem.id = "checkItem" + numberOfItems
+			    checkItem.appendChild(checkItemIcon)
+			    checkItem.onclick = checkItemF
+			    //checkItem.style.borderTop = "black solid 1px"
+			
+			    listContent.appendChild(newItem)
+			    listContent.appendChild(checkItem)
+
+			    localStorage.setItem('numberOfItems',numberOfItems)
+			    numberOfItems+=1;
+			}
+			
+			function confirmReset() {
+			    resetConfirmDialog.style.opacity = "1";  resetConfirmDialog.style.top = "10px";  resetConfirmDialog.style.pointerEvents = "all"
+			}
+			
+			function closeReset() {
+			    resetConfirmDialog.style.opacity = "0";  resetConfirmDialog.style.top = "00px";  resetConfirmDialog.style.pointerEvents = "none"
+			}
+			
+			function resetList() {
+			    numberOfItems=0
+			    listContent.innerHTML=""
+			    listName.value="New List"
+			    document.title=listName.value
+			    addItem()
+			    closeReset()
+			    localStorage.clear()
+			    document.getElementById("item1").style.border="none";
+			}
+			
+			function checkItemF(event) {
+			    checkItemNumber = event.currentTarget.id.match(/\d+$/)[0]
+			    itemToCheck = document.getElementById("item" + checkItemNumber)
+			    if (itemToCheck.style.textDecoration != "line-through") {
+			        itemToCheck.style.textDecoration = "line-through"
+				      localStorage.setItem("item" + checkItemNumber + "checked","true")
+			    } else {
+			        itemToCheck.style.textDecoration = "none"
+				      localStorage.removeItem("item" + checkItemNumber + "checked")
+			    }
+			}
+			
+			function shouldYouRemove(event) {
+			    checkItemNumber = event.currentTarget.id.match(/\d+$/)[0]
+			    itemToRemove = document.getElementById("item" + checkItemNumber)
+			    buttonToRemove = document.getElementById("checkItem" + checkItemNumber)
+			
+			    if (itemToRemove.value === "" && checkItemNumber != 1) {
+			        listContent.removeChild(itemToRemove)
+			        listContent.removeChild(buttonToRemove)
+			        numberOfItems-=1
+				localStorage.setItem('numberOfItems',numberOfItems)
+				localStorage.removeItem("item" + checkItemNumber)
+			    } else {
+				localStorage.setItem("item" + checkItemNumber,itemToRemove.value)
+			    }
+			}
+
+			function updatePageTitle() {
+				localStorage.setItem("savedTitle", listName.value)
+				document.title=listName.value + " - TEST MODE"
+			}
+		</script>
+	</body>
+</html>
