@@ -15,7 +15,7 @@ body {
 
 #openLists {
     float:left;
-    right:30px;
+    width:30px;
     height:30px;
     background-color:purple;
     border:transparent;
