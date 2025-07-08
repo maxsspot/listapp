@@ -17,8 +17,9 @@ body {
     float:left;
     width:44px;
     height:44px;
-    background-color:purple;
+    background-color:transparent;
     border:transparent;
+    color:white;
 }
 
 #coverBg {
