@@ -13,6 +13,14 @@ body {
     user-select:none;
 }
 
+#openLists {
+    float:left;
+    right:30px;
+    height:30px;
+    background-color:transparent;
+    border:transparent;
+}
+
 #coverBg {
     position:fixed;
     width:100%;
