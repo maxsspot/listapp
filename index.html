@@ -115,11 +115,11 @@
 				
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
-				iconToChange.className = "fa-regular fa-square-check"
+				iconToChange.className = "fa-regular fa-square-check fa-lg"
 				localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
 			        itemToCheck.style.textDecoration = "none"
-				iconToChange.className = "fa-regular fa-square"
+				iconToChange.className = "fa-regular fa-square fa-lg"
 				localStorage.removeItem("item" + checkItemNumber + "checked")
 			    }
 			}
