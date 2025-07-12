@@ -67,7 +67,7 @@
 			    newItem.id = "item" + numberOfItems
 			    newItem.addEventListener("blur",shouldYouRemove)
 			    if (numberOfItems>1) {
-				newItem.style.borderTop = "black solid 1px"
+				//newItem.style.borderTop = "black solid 1px"
 			    }
 			
 			    checkItemIcon = document.createElement("i")
@@ -79,9 +79,9 @@
 			    checkItem.appendChild(checkItemIcon)
 			    checkItem.onclick = checkItemF
 			    //checkItem.style.borderTop = "black solid 1px"
-			
-			    listContent.appendChild(newItem)
+
 			    listContent.appendChild(checkItem)
+			    listContent.appendChild(newItem)
 
 			    localStorage.setItem('numberOfItems',numberOfItems)
 			    numberOfItems+=1;
