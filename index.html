@@ -111,14 +111,15 @@
 			function checkItemF(event) {
 			    checkItemNumber = event.currentTarget.id.match(/\d+$/)[0]
 			    itemToCheck = document.getElementById("item" + checkItemNumber)
+			    iconToChange = event.currentTarget.querySelector("i");
+				
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
-				document.getElementById("checkItem" + checkItemNumber).className = ""
-				document.getElementById("checkItem" + checkItemNumber).className = "fa-regular fa-square-check"
+				iconToChange.className = "fa-regular fa-square-check"
 				localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
 			        itemToCheck.style.textDecoration = "none"
-				document.getElementById("checkItem" + checkItemNumber).className = "fa-regular fa-square"
+				iconToChange.className = "fa-regular fa-square"
 				localStorage.removeItem("item" + checkItemNumber + "checked")
 			    }
 			}
