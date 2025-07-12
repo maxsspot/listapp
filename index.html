@@ -113,6 +113,7 @@
 			    itemToCheck = document.getElementById("item" + checkItemNumber)
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
+				document.getElementById("checkItem" + checkItemNumber).className = ""
 				document.getElementById("checkItem" + checkItemNumber).className = "fa-regular fa-square-check"
 				localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
