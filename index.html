@@ -71,7 +71,7 @@
 			    }
 			
 			    checkItemIcon = document.createElement("i")
-			    checkItemIcon.className = "fa-solid fa-check"
+			    checkItemIcon.className = "fa-regular fa-square"
 			
 			    checkItem = document.createElement("button")
 			    checkItem.className = "itemControl"
@@ -113,10 +113,12 @@
 			    itemToCheck = document.getElementById("item" + checkItemNumber)
 			    if (itemToCheck.style.textDecoration != "line-through") {
 			        itemToCheck.style.textDecoration = "line-through"
-				      localStorage.setItem("item" + checkItemNumber + "checked","true")
+				document.getElementById("checkItem" + checkItemNumber).className = "fa-regular fa-square-check"
+				localStorage.setItem("item" + checkItemNumber + "checked","true")
 			    } else {
 			        itemToCheck.style.textDecoration = "none"
-				      localStorage.removeItem("item" + checkItemNumber + "checked")
+				document.getElementById("checkItem" + checkItemNumber).className = "fa-regular fa-square"
+				localStorage.removeItem("item" + checkItemNumber + "checked")
 			    }
 			}
 			
