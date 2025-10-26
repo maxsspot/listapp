@@ -53,6 +53,7 @@
 
 					if (localStorage.getItem("item" + i + "checked")) {
 						itemInput.style.textDecoration = "line-through"
+						document.getElementById("checkItem" + i).querySelector("i").className = "fa-regular fa-square-check fa-lg"
 					}
 					
 					i++
